@@ -3,6 +3,23 @@ import React from 'react';
 import AppComponent from 'flow-app-component';
 
 class NavItem extends AppComponent {
+  static properties = {
+    iconUrl: '/assets/images/app-component.svg',
+    name: 'Nav Item',
+    componentType: 'NavItem',
+    category: 'Views',
+    parent: null,
+    showOnComponentsPanel: true,
+    isDeleteable: true,
+
+    // this flag pops up a DELETE modal when the delete button is clicked. False will not show the modal.
+    isValuable: false,
+
+    allowsChildren: true,
+    allowedChildTypes: ['subNavItem'],
+    allowedParentTypes: ['nav']
+  };
+
   constructor() {
     super();
     const newState = {
@@ -77,17 +94,8 @@ class NavItem extends AppComponent {
           ],
         },
       ],
-      iconUrl: '/assets/images/app-component.svg',
-      name: 'Nav Item',
-      componentType: 'NavItem',
-      category: 'Views',
-      parent: null,
-      showOnComponentsPanel: true,
-      isDeleteable: true,
-      isValuable: false, // this flag pops up a DELETE modal when the delete button is clicked. False will not show the modal.
-      allowsChildren: true,
-      allowedChildTypes: ['subNavItem'],
-      allowedParentTypes: ['nav'],
+
+      ...NavItem.properties
     };
 
     this.state = Object.assign(this.state, newState); // merge two states together, and dont lose any parent state properties.

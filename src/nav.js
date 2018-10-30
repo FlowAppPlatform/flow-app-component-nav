@@ -4,6 +4,23 @@ import AppComponent from 'flow-app-component';
 import './css/theme/default.scss';
 
 class Nav extends AppComponent {
+  static properties = {
+    iconUrl: '/assets/images/app-component.svg',
+    name: 'Nav',
+    componentType: 'app',
+    category: 'Views',
+    parent: null,
+    showOnComponentsPanel: false,
+    isDeleteable: false,
+
+    // this flag pops up a DELETE modal when the delete button is clicked. False will not show the modal.
+    isValuable: true,
+
+    allowsChildren: true,
+    allowedChildTypes: ['navItem', 'search'],
+    allowedParentTypes: ['app']
+  };
+
   constructor() {
     super();
     this.navRef = null;
@@ -71,17 +88,8 @@ class Nav extends AppComponent {
           ],
         },
       ],
-      iconUrl: '/assets/images/app-component.svg',
-      name: 'Nav',
-      componentType: 'app',
-      category: 'Views',
-      parent: null,
-      showOnComponentsPanel: false,
-      isDeleteable: false,
-      isValuable: true, // this flag pops up a DELETE modal when the delete button is clicked. False will not show the modal.
-      allowsChildren: true,
-      allowedChildTypes: ['navItem', 'search'],
-      allowedParentTypes: ['app'],
+
+      ...Nav.properties
     };
     this.state = Object.assign(this.state, newState); // merge two states together, and dont lose any parent state properties.
     this.navRef = React.createRef();
