@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AppComponent from 'flow-app-component';
-import './css/theme/default.scss';
+import './css/theme/default.css';
 
 class Nav extends AppComponent {
   constructor() {

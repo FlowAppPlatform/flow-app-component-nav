@@ -79,7 +79,7 @@ class NavItem extends AppComponent {
       ],
       iconUrl: '/assets/images/app-component.svg',
       name: 'Nav Item',
-      componentType: 'NavItem',
+      componentType: 'navItem',
       category: 'Views',
       parent: null,
       showOnComponentsPanel: true,
